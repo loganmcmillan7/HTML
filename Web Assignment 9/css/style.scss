@@ -1,0 +1,78 @@
+@import "variables";
+
+$primary-background-10: lighten($primary-background, 10%);
+$primary-background-50: lighten($primary-background, 50%);
+
+body { 
+    background-color: $primary-background; 
+    /*For browsers that don't support gradients*/
+    background: linear-gradient(rgba($primary-background-10, 0.9), rgba($primary-background, 0.95)); 
+    color: $primary-color !important;
+}
+
+header h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+main {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+#top {
+    height: 5%  ;
+    background: linear-gradient(rgba($primary-background-10, 0.9), rgba($primary-background, 0.95)); 
+}
+
+img {
+    margin: 0 auto;
+    display: block;
+    max-width: 90%;
+} 
+
+nav {
+
+    a {
+        color: $primary-color !important;
+        &:hover,
+        &:focus {
+             background-color: $primary-background-10 !important;
+        }
+           }
+}
+
+article 
+{
+    border-right: 1px dashed $primary-background-50; 
+
+    &:target {
+        animation-name: glow;
+        animation-duration: 4s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+        }
+
+}
+
+article:nth-child(1) {
+    border-left: 1px dashed $primary-background-50; 
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 501px) {
+    body {
+        text-align: left;
+    }
+}
+
+@keyframes glow
+{
+    from { box-shadow: 2px 2px 2px 2px; }
+    to { box-shadow: 2px 2px 2px 2px $primary-color; }
+}
